@@ -1,3 +1,3 @@
-require("KomisarzRyba.set")
-require("KomisarzRyba.plugins")
-require("KomisarzRyba.remap")
+require('KomisarzRyba.set')
+require('KomisarzRyba.remap')
+require('KomisarzRyba.plugins')
