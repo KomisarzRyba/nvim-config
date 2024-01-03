@@ -62,9 +62,19 @@ fterm.setup({
     on_stderr = nil,
 })
 
-vim.api.nvim_create_user_command('FTermOpen', fterm.open, { bang = true })
-vim.api.nvim_create_user_command('FTermClose', fterm.close, { bang = true })
 vim.api.nvim_create_user_command('FTermToggle', fterm.toggle, { bang = true })
 
 vim.keymap.set('n', '<C-i>', '<CMD>FTermToggle<CR>')
 vim.keymap.set('t', '<C-i>', '<C-\\><C-n><CMD>FTermToggle<CR>')
+
+local lazygit = fterm:new({
+    ft = 'lazygit',
+    cmd = 'lazygit',
+})
+
+vim.api.nvim_create_user_command('LazygitToggle', function()
+    lazygit:toggle()
+end, { bang = true })
+
+vim.keymap.set('n', '<C-g>', '<CMD>LazygitToggle<CR>')
+vim.keymap.set('t', '<C-g>', '<C-\\><C-n><CMD>LazygitToggle<CR>')
