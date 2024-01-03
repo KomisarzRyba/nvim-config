@@ -52,6 +52,7 @@ require('lazy').setup({
             'rafamadriz/friendly-snippets',
         },
     },
+    { 'numToStr/Comment.nvim' },
     {
         'windwp/nvim-ts-autotag',
         ft = {
