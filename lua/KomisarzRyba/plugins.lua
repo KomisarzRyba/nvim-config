@@ -22,6 +22,13 @@ require('lazy').setup({
     { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
     { 'ckipp01/stylua-nvim' },
     {
+        'rust-lang/rust.vim',
+        ft = 'rust',
+        init = function()
+            vim.g.rustfmt_autosave = 1
+        end,
+    },
+    {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.5',
         dependencies = { 'nvim-lua/plenary.nvim' },
@@ -31,6 +38,7 @@ require('lazy').setup({
         branch = 'harpoon2',
         dependencies = { 'nvim-lua/plenary.nvim' },
     },
+    { 'numToStr/FTerm.nvim' },
     { 'stevearc/dressing.nvim', event = 'VeryLazy' },
     { 'L3MON4D3/LuaSnip', run = 'make install_jsregexp' },
     {
