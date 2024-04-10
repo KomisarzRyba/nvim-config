@@ -3,6 +3,11 @@
 --
 -- See the kickstart.nvim README for more information
 
+-- Folds
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldenable = false
+
 -- Explorer
 vim.keymap.set('n', '<leader>pv', ':NvimTreeToggle<CR>')
 
