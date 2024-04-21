@@ -52,4 +52,10 @@ return {
     event = 'InsertEnter',
     config = true,
   },
+  {
+    'aserowy/tmux.nvim',
+    config = function()
+      return require('tmux').setup()
+    end,
+  },
 }
