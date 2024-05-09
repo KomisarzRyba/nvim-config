@@ -1,6 +1,3 @@
--- Explorer
-vim.keymap.set('n', '<leader>pv', ':NvimTreeToggle<CR>')
-
 return {
   'nvim-tree/nvim-tree.lua',
   version = '*',
@@ -16,7 +13,7 @@ return {
           open_win_config = function()
             local screen_w = vim.opt.columns:get()
             local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
-            local window_w = screen_w * 0.66
+            local window_w = screen_w * 0.8
             local window_h = screen_h * 0.8
             local window_cols = math.floor(window_w)
             local window_rows = math.floor(window_h)
@@ -35,4 +32,12 @@ return {
       },
     }
   end,
+  keys = {
+    {
+      '<leader>pv',
+      ':NvimTreeToggle<CR>',
+      mode = 'n',
+      desc = 'Toggle file explorer',
+    },
+  },
 }
