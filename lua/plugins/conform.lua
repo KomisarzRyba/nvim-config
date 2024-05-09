@@ -31,6 +31,8 @@ return {
       typescriptreact = { 'prettierd' },
 
       go = { 'gofumpt' },
+
+      swift = { 'swiftformat' },
     },
   },
 }
