@@ -74,8 +74,8 @@ return {
       },
       formatting = {
         fields = {
-          'kind',
-          'abbr',
+          cmp.ItemField.Kind,
+          cmp.ItemField.Abbr,
         },
         format = function(entry, vim_item)
           vim_item.kind = lspkind.symbolic(vim_item.kind, { mode = 'symbol' })
@@ -91,8 +91,9 @@ return {
               vim_item.kind = vim_item.kind .. ' ' .. '[ML]'
             end
           end
-          local maxwidth = 80
+          local maxwidth = 32
           vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
+          vim_item.menu = ''
           return vim_item
         end,
       },
