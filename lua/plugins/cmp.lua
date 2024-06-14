@@ -20,8 +20,8 @@ return {
     'saadparwaiz1/cmp_luasnip',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
-    'tzachar/cmp-ai',
     'rafamadriz/friendly-snippets',
+    'hrsh7th/cmp-nvim-lsp-signature-help',
   },
   config = function()
     local cmp = require 'cmp'
@@ -53,19 +53,12 @@ return {
             luasnip.jump(-1)
           end
         end, { 'i', 's' }),
-        ['<C-x>'] = cmp.mapping(cmp.mapping.complete {
-          config = {
-            ---@diagnostic disable-next-line
-            sources = cmp.config.sources {
-              { name = 'cmp_ai' },
-            },
-          },
-        }),
       },
       sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
+        { name = 'nvim_lsp_signature_help' },
       },
       formatting = {
         fields = {
@@ -75,17 +68,6 @@ return {
         format = function(entry, vim_item)
           vim_item.kind = lspkind.symbolic(vim_item.kind, { mode = 'symbol' })
           -- vim_item.menu = source_mapping[entry.source.name]
-          if entry.source.name == 'cmp_ai' then
-            local detail = (entry.completion_item.labelDetails or {}).detail
-            vim_item.kind = ''
-            if detail and detail:find '.*%%.*' then
-              vim_item.kind = vim_item.kind .. ' ' .. detail
-            end
-
-            if (entry.completion_item.data or {}).multiline then
-              vim_item.kind = vim_item.kind .. ' ' .. '[ML]'
-            end
-          end
           local maxwidth = 32
           vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
           vim_item.menu = ''
